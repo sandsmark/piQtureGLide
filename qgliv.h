@@ -90,7 +90,7 @@ private:
         QSlider *rotateX, *rotateY;
         QSlider *zoomSlider; QTimer *zoomTimer;
         QComboBox *transitions;
-        int level;
+        int level = 0;
     } ui;
 
     QGLImageViewer* view;

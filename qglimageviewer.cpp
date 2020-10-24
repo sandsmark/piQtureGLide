@@ -977,6 +977,7 @@ QGLImageViewer::QGLImageViewer( QWidget* parent, const char* name, float fps, bo
 
 QGLImageViewer::~QGLImageViewer()
 {
+#if 0 // we can't do this while stuff is getting deleted...
    makeCurrent();
    // we cannot handle this in the image destructor as the gllists are flat copies
    // if we did, we'd loose them when copying the image into the image list and destroying the original
@@ -992,6 +993,7 @@ QGLImageViewer::~QGLImageViewer()
    }
 //       glDeleteLists( (*it).glObject(), 1 );
    _images.clear();
+#endif
 }
 
 bool QGLImageViewer::isTimerActive() const

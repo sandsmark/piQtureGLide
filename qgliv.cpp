@@ -184,7 +184,7 @@ QGLIV::QGLIV( QWidget* parent, const char* name ) : QWidget( parent )
             path = QString();
 #define CHARS(_S_) _S_.toLocal8Bit().data()
             qWarning("No such shader %s in %s or %s", CHARS(path), CHARS(globalDir), CHARS(localDir) );
-            //path = "shader.vert";
+            path = "shader.vert";
         }
         shader_vert = 0;
         if (!path.isNull()) {
@@ -201,7 +201,7 @@ QGLIV::QGLIV( QWidget* parent, const char* name ) : QWidget( parent )
         else {
             path = QString();
             qWarning("No such shader %s in %s or %s", CHARS(path), CHARS(globalDir), CHARS(localDir) );
-            //path = "shader.vert";
+            path = "shader.vert";
 #undef CHARS
         }
         qDebug() << "Loading shader from" << path;
@@ -231,6 +231,7 @@ QGLIV::QGLIV( QWidget* parent, const char* name ) : QWidget( parent )
 
     // Create a rmb menu
     ui.rmbPopup = new QMenu( this );
+    ui.level = 0;
     ui.rmbPopup->addMenu( file );
     ui.rmbPopup->addMenu( edit );
 
